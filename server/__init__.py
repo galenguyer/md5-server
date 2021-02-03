@@ -24,4 +24,4 @@ def _index_post():
     data = request.json
     r.set('max:val', data["max_val"])
     r.set('max:hash', data["max_hash"])
-    return jsonify([r.get('max:val'), r.get('max:hash')])
+    return jsonify([r.get('max:val').decode('UTF-8'), r.get('max:hash').decode('UTF-8')])
