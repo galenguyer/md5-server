@@ -1,5 +1,6 @@
 """ A small flask Hello World """
 import os
+import redis
 from flask import Flask, jsonify, request
 
 APP = Flask(__name__)
