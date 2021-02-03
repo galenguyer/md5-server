@@ -28,3 +28,4 @@ def _index_get():
 @APP.route('/', methods=["POST"])
 def _index_post():
     data = request.json
+    return jsonify([r.get('max:val'), r.get('max:hash')])
