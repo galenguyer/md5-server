@@ -15,3 +15,5 @@ PORT = os.environ.get('PORT', 5000)
 #SERVER_NAME = os.environ.get('SERVER_NAME', 'localhost:5000')
 SECRET_KEY = os.environ.get('SESSION_KEY', default=''.join(secrets.token_hex(16)))
 
+REDIS_HOST = os.environ.get('REDIS_HOST', default='localhost')
+REDIS_PORT = os.environ.get('REDIS_PORT', 6379)
