@@ -15,12 +15,6 @@ APP.secret_key = APP.config['SECRET_KEY']
 
 r = redis.Redis(host=APP.config['REDIS_HOST'], port=int(APP.config['REDIS_PORT']))
 
-try:
-    r.get('max:val')
-    r.get('max:hash')
-except:
-    print("uh oh a fucky wucky happened")
-
 @APP.route('/', methods=["GET"])
 def _index_get():
     return jsonify(status=200, response="OK")
@@ -28,4 +22,6 @@ def _index_get():
 @APP.route('/', methods=["POST"])
 def _index_post():
     data = request.json
+    r.set('max:val', data["max_val"])
+    r.set('max:hash', data["max_hash"])
     return jsonify([r.get('max:val'), r.get('max:hash')])
